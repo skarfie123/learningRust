@@ -1,0 +1,9 @@
+# [Getting Started](https://www.rust-lang.org/learn/get-started)
+
+```sh
+cargo new hello-rust
+cargo run
+cargo add ferris-says # or add manually to Cargo.toml and run `cargo build`
+```
+
+Note, for `rust-analyzer` to work, you need to open the folder that contains `Cargo.toml` as the root.
