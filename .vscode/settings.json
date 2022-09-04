@@ -1,6 +1,6 @@
 {
     "rust-analyzer.linkedProjects": [
-        "GettingStarted\\hello-rust\\Cargo.toml",
-        "rustlings\\rust-project.json"
+        "GettingStarted/hello-rust/Cargo.toml",
+        "rustlings/rust-project.json",
     ]
 }
