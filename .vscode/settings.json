@@ -1,6 +1,7 @@
 {
     "rust-analyzer.linkedProjects": [
         "GettingStarted/hello-rust/Cargo.toml",
+        "TheBook/minigrep/Cargo.toml",
         "rustlings/rust-project.json",
     ]
 }
