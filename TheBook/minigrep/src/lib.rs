@@ -1,35 +1,19 @@
 use std::error::Error;
-use std::{env, fs};
+use std::fs;
 
+use clap::Parser;
+
+/// Mini Grep CLI args
+#[derive(Parser)]
+#[clap(author, version, about, long_about = None)]
 pub struct Config {
+    /// string to search in file
     pub query: String,
+    /// path of file to search in
     pub file_path: String,
+    /// whether to do case insensitive search
+    #[clap(long, env)]
     pub ignore_case: bool,
-}
-
-impl Config {
-    pub fn build(mut args: impl Iterator<Item = String>) -> Result<Config, &'static str> {
-        args.next();
-
-        let query = match args.next() {
-            Some(arg) => arg,
-            None => return Err("Didn't get a query string"),
-        };
-
-        let file_path = match args.next() {
-            Some(arg) => arg,
-            None => return Err("Didn't get a file path"),
-        };
-
-        let ignore_case = env::var("IGNORE_CASE").is_ok()
-            || args.next().unwrap_or(String::from("")) == "--ignore-case";
-
-        Ok(Config {
-            query,
-            file_path,
-            ignore_case,
-        })
-    }
 }
 
 pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
